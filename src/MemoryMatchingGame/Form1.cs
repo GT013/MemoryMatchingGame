@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,8 @@ namespace MemoryMatchingGame
 {
     public partial class GameWindow : Form
     {
+
+        SoundPlayer t1 = new SoundPlayer("../.../t.wav");
         //Variables
         //int score = 0; //Our Scores
         Random location = new Random(); //Selects a random value from X and Y list and assign a new location to each card
@@ -47,9 +50,10 @@ namespace MemoryMatchingGame
                 picture.Location = p;
                 points.Remove(p);
             }
-
+           
             timer2.Start();
             timer1.Start();
+            
             Card1.Image = Properties.Resources.Card1;
             DupCard1.Image = Properties.Resources.Card1;
             Card2.Image = Properties.Resources.Card2;
@@ -74,6 +78,18 @@ namespace MemoryMatchingGame
             DupCard11.Image = Properties.Resources.Card11;
             Card12.Image = Properties.Resources.Card12;
             DupCard12.Image = Properties.Resources.Card12;
+
+            
+        }
+       private void win()
+        {
+          
+            
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                MessageBox.Show("You winner", "win", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -84,13 +100,15 @@ namespace MemoryMatchingGame
                 picture.Enabled = true;
                 picture.Cursor = Cursors.Hand;
                 picture.Image = Properties.Resources.Cover;
+                timer4.Enabled = true;
+                timer4.Start();
             }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             int timer = Convert.ToInt32(label1.Text);
-            timer = timer-1;
+            timer = timer - 1;
             label1.Text = Convert.ToString(timer);
             if (timer == 0)
             {
@@ -123,10 +141,13 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
+                    
                 }
             }
+           
         }
         private void DupCard1_Click(object sender, EventArgs e)
         {
@@ -151,10 +172,13 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                   
                     timer3.Start();
                 }
             }
+            
         }
 
         private void Card2_Click(object sender, EventArgs e)
@@ -180,7 +204,9 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                
                     timer3.Start();
                 }
             }
@@ -209,7 +235,9 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                    
                     timer3.Start();
                 }
             }
@@ -238,7 +266,9 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                    
                     timer3.Start();
                 }
             }
@@ -267,7 +297,9 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
+                    
                     timer3.Start();
                 }
             }
@@ -296,6 +328,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -325,6 +358,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -354,6 +388,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -383,6 +418,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -412,6 +448,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -441,6 +478,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -470,6 +508,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -499,6 +538,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -528,6 +568,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -557,6 +598,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -586,6 +628,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -615,6 +658,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -644,6 +688,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -673,6 +718,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -702,6 +748,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -731,6 +778,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -760,6 +808,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -789,6 +838,7 @@ namespace MemoryMatchingGame
                 }
                 else
                 {
+                    t1.Play();
                     ScoreCounter.Text = Convert.ToString(Convert.ToInt32(ScoreCounter.Text) - 10);
                     timer3.Start();
                 }
@@ -803,11 +853,67 @@ namespace MemoryMatchingGame
             PendingImage2.Image = Properties.Resources.Cover;
             PendingImage1 = null;
             PendingImage2 = null;
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             GameWindow_Load(sender, e);
+            timer4.Stop();
+            min.Text = "00";
+            msecond.Text = "00";
+            second.Text = "00";
+
+        }
+
+        private void ScoreCounter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ScoreLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer4.Stop();
+            if (MessageBox.Show("Do you want Exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                
+                Application.Exit();
+            }
+            
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            msecond.Text = (int.Parse(msecond.Text) + 1).ToString();
+            if (int.Parse(msecond.Text) < 10) msecond.Text = "0" + msecond.Text;
+            if (int.Parse(msecond.Text) == 60)
+            {
+                second.Text = (int.Parse(second.Text) + 1).ToString();
+                msecond.Text = "00";
+                if (int.Parse(second.Text) < 10) second.Text = "0" + second.Text;
+                if (int.Parse(second.Text) == 60)
+                {
+                    min.Text = (int.Parse(min.Text) + 1).ToString();
+                    second.Text = "00";
+                    if (int.Parse(min.Text) < 10) min.Text = "0" + min.Text;
+                }
+            }
+        }
+
+        private void second_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CardsHolder_Paint(object sender, PaintEventArgs e)
+        {
+           
         }
     }
 }
